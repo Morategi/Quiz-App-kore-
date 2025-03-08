@@ -43,7 +43,7 @@
 
 }
 
-.hod-prefix{
+.hod-prefix, #timer{
     text-align: center;
     font-size: 2rem;
 }
@@ -51,6 +51,7 @@
 .hod-main-text {
     text-align: center;
 }
+
 
 #progressBar{
     width:20rem;
@@ -64,6 +65,12 @@
     background-color: #a16093;
     width: 0%;
 }
+
+#timer{
+    padding: 1rem;
+}
+
+
 
 /* LOADER */
 

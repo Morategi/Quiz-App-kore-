@@ -5,6 +5,8 @@ const scoreText = document.getElementById('score');
 const progressBarFull = document.getElementById("progressBarFull");
 const loader = document.getElementById('loader');
 const game = document.getElementById('game');
+const timerText = document.getElementById("timer");
+console.log(timerText);
 
 
 let currentQuestion = {};
@@ -56,6 +58,7 @@ fetch("https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=mu
 const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 10;
 
+
 startGame = () => {
     questionCounter = 0;
     score = 0;
@@ -65,6 +68,10 @@ startGame = () => {
     game.classList.remove('hidden');
     loader.classList.add('hidden');
 }
+
+let timer;
+const TIME_LIMIT =60;
+let timeLeft = TIME_LIMIT;
 
 getNewQuestion = () => {
 
@@ -91,6 +98,26 @@ getNewQuestion = () => {
 
     availableQuestions.splice(questionIndex, 1);
     acceptingAnswers =  true;
+
+    // Reset Timer
+
+
+
+    clearInterval(timer);
+    timeLeft = TIME_LIMIT;
+    timerText.innerText = `Time: ${timeLeft}s`;
+    
+    timer = setInterval(() => {
+        timeLeft--;
+        console.log("Time left:", timeLeft);
+        timerText.innerText = `Time: ${timeLeft}s`;
+       
+
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            getNewQuestion();  // Moves to next question automatically
+        }
+    }, 1000);
 };
 
 
