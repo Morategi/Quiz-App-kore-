@@ -129,3 +129,7 @@ input::placeholder{
     color: #aaa;
    
 }
+
+#registerForm{
+    padding: 20rem;
+}
