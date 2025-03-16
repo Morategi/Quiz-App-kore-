@@ -6,6 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
     let emailField = document.querySelector(".input-field input[type='email']");
     let passwordField = document.querySelector(".input-field input[type='password']");
 
+
+    // Function to validate email format
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    
     // Function to generate a strong password
     function generatePassword(length = 12) {
         const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+=<>?";
@@ -16,6 +24,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         return password;
     }
+
+    // Generate a password before the user signs up
+    const generatedPassword = generatePassword();
+    passwordField.value = generatedPassword;
 
     // Redirect to game if the user is already signed in
     if (localStorage.getItem("username")) {
@@ -55,6 +67,14 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Please fill in all fields.");
             return;
         }
+
+        // Validate email format
+        if (!isValidEmail(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        
 
         // Check if user already exists
         if (localStorage.getItem("email") === email) {
