@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("email", email);
         localStorage.setItem("password", generatedPassword);
 
-        alert(`✅ Welcome, ${username}! Your password is: ${generatedPassword}. Please save it.`);
+        alert(`Welcome, ${username}! Your password is: ${generatedPassword}. Please save it.`);
         window.location.href = "/game.html"; // Redirect to game after sign-up
     });
 
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        alert("✅ You have successfully signed in.");
+        alert("You have successfully signed in.");
         window.location.href = "/game.html"; // Redirect to game after sign-in
         startGame();
     });

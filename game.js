@@ -100,9 +100,6 @@ getNewQuestion = () => {
     acceptingAnswers =  true;
 
     // Reset Timer
-
-
-
     clearInterval(timer);
     timeLeft = TIME_LIMIT;
     timerText.innerText = `Time: ${timeLeft}s`;
